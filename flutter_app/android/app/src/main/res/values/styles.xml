@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the Flutter UI initializes -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Show a splash image. See res/drawable/launch_background.xml for template. -->
+        <item android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the Flutter UI renders.
+         This deactivates the splash screen and prevents artifacting. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>
