@@ -4,15 +4,16 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  // Use 10.0.2.2 for Android emulator to connect to localhost on host machine.
+  /// Live Railway backend — update this when your Railway URL changes.
+  static const String _productionUrl = 'https://webapp-production-e169.up.railway.app/api';
+
   static String get baseUrl {
-    if (kIsWeb) {
-      return 'http://localhost:5000/api';
-    } else if (defaultTargetPlatform == TargetPlatform.android) {
+    // In debug mode on Android emulator, use 10.0.2.2 to reach host localhost.
+    // In all other cases (real device, release build, web, iOS) use production.
+    if (kDebugMode && defaultTargetPlatform == TargetPlatform.android) {
       return 'http://10.0.2.2:5000/api';
-    } else {
-      return 'http://localhost:5000/api';
     }
+    return _productionUrl;
   }
 
   static Future<Map<String, String>> _getHeaders() async {
