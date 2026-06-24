@@ -24,7 +24,7 @@ interface AuthContextType extends AuthState {
   clearError: () => void;
 }
 
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:5000/api";
 
 // ─── Context ─────────────────────────────────────────
 const AuthContext = createContext<AuthContextType | null>(null);
